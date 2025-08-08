@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang - Suskom</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+    <div class="main-container">
+        <div class="welcome-box">
+            <div class="welcome-header">
+                <!-- <img src="https://via.placeholder.com/120x120?text=Logo" alt="Logo Restoran" class="logo"> -->
+                <h2>Selamat Datang di <br> Suskom</h2>
+                <p>Pilih bagaimana Anda ingin masuk.</p>
+            </div>
+
+            <div class="toggle-buttons">
+                <button id="showCustomerForm" class="btn-toggle active">Pesan sebagai Pelanggan</button>
+                <button id="showEmployeeForm" class="btn-toggle">Masuk sebagai Pegawai</button>
+            </div>
+
+            <div id="customerSection" class="form-section active">
+                <p class="section-description">Silakan masukkan Kode Meja Unik dan Nama Anda untuk melihat menu.</p>
+                <form id="customerForm" class="input-form">
+                    <div class="form-group">
+                        <label for="tableCode">Kode Meja</label>
+                        <input type="text" id="tableCode" name="tableCode" placeholder="Cth: T01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerName">Nama Anda</label>
+                        <input type="text" id="customerName" name="customerName" placeholder="Cth: Budi" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Lihat Menu</button>
+                    <p id="customerErrorMessage" class="error-message"></p>
+                </form>
+            </div>
+
+            <div id="employeeSection" class="form-section">
+                <p class="section-description">Untuk karyawan, silakan masuk ke dashboard Anda.</p>
+                <!-- Pastikan id formulir ini benar -->
+                <form id="employeeLoginForm" class="input-form">
+                    <div class="form-group">
+                        <label for="employeeUsername">Nama Pengguna</label>
+                        <input type="text" id="employeeUsername" name="employeeUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeePassword">Kata Sandi</label>
+                        <input type="password" id="employeePassword" name="employeePassword" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Masuk ke Dashboard</button>
+                    <p id="employeeErrorMessage" class="error-message"></p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Pastikan script.js yang diperbarui dimuat -->
+    <script src="script.js"></script>
+</body>
+</html>

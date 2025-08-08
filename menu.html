@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Digital - Suskom</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="menu-page">
+    <header class="menu-header">
+        <div class="container menu-header-content">
+            <div class="header-left">
+                <!-- <img src="img/logo.png" alt="Logo Kecil" class="logo-small"> -->
+                <h1>Menu Digital</h1>
+            </div>
+            <div class="header-right">
+                <span class="table-info">Meja: <strong id="displayedTableCode">--</strong></span>
+                <span class="customer-info" id="displayedCustomerName"></span>
+                <button class="cart-btn" id="viewCartBtn">
+                    <i class="fas fa-shopping-cart"></i> Keranjang (<span id="cartItemCount">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="menu-main container">
+        <aside class="sidebar">
+            <h2>Kategori</h2>
+            <ul class="category-filters">
+                <li><button class="filter-btn active" data-category="all">Semua Menu</button></li>
+                <li><button class="filter-btn" data-category="makanan_utama">Makanan Utama</button></li>
+                <li><button class="filter-btn" data-category="pembuka">Pembuka</button></li>
+                <li><button class="filter-btn" data-category="minuman">Minuman</button></li>
+                <li><button class="filter-btn" data-category="dessert">Dessert</button></li>
+            </ul>
+        </aside>
+
+        <div class="menu-content">
+            <section id="menuItems" class="menu-grid">
+                <p>Memuat menu...</p> </section>
+        </div>
+    </main>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cartItems">
+                <p class="empty-cart-message">Keranjang Anda kosong.</p>
+                </div>
+            <div class="cart-summary">
+                <p>Total: <strong id="cartTotal">Rp 0</strong></p>
+                <button id="checkoutBtn" class="btn-checkout">Pesan Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pastikan script.js dimuat sebelum menu.js -->
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>

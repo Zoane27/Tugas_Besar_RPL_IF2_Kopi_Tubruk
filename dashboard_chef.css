@@ -1,0 +1,441 @@
+/* === General Variables and Body Styles === */
+:root {
+    --primary-color: #3f72af;
+    --primary-light: #528fc8;
+    --accent-dark: #112d4e;
+    --accent-light: #f9f7f7;
+    --bg-dark: #dbe2ef;
+    --bg-light: #f9f7f7;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --border-color: #dbe2ef;
+    --font-heading: 'Roboto', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    --status-pending: #ffc107; /* Yellow */
+    --status-preparing: #0d6efd; /* Blue */
+    --status-ready: #198754; /* Green */
+    --status-cancelled: #dc3545; /* Red */
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--accent-dark);
+}
+
+/* === Main Dashboard Layout === */
+.dashboard-page {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-sidebar {
+    width: 250px;
+    background-color: var(--accent-dark);
+    color: var(--accent-light);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 10px var(--shadow-medium);
+}
+
+.sidebar-header {
+    margin-bottom: 30px;
+}
+
+.sidebar-header h3 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav .nav-item {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav .nav-item a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--accent-light);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-nav .nav-item a:hover {
+    background-color: var(--primary-light);
+    color: var(--accent-light);
+}
+
+.sidebar-nav .nav-item.active a {
+    background-color: var(--primary-color);
+    font-weight: 700;
+}
+
+.sidebar-nav .nav-item a i {
+    margin-right: 15px;
+}
+
+/* --- Main Content Area --- */
+.dashboard-main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Topbar Styling === */
+.dashboard-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--bg-light);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.greeting {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.user-role {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.notification-icon {
+    font-size: 1.5em;
+    color: var(--accent-dark);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.notification-icon:hover {
+    color: var(--primary-color);
+}
+
+/* === Main Content Sections === */
+.dashboard-content {
+    padding: 40px;
+    flex-grow: 1;
+}
+
+.content-section {
+    display: none;
+    margin-bottom: 40px;
+}
+
+.content-section.active {
+    display: block;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    color: var(--accent-dark);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* === Dashboard Overview Section === */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background-color: var(--accent-light);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+}
+
+.stat-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0;
+    color: var(--accent-dark);
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.recent-activity {
+    background-color: var(--accent-light);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.recent-activity h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+    color: var(--primary-color);
+}
+
+.recent-activity ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recent-activity li {
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+.recent-activity li:last-child {
+    border-bottom: none;
+}
+
+.activity-time {
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin-right: 15px;
+    min-width: 60px;
+}
+
+/* === Kitchen Orders Section === */
+.kitchen-orders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.kitchen-order-card {
+    background-color: var(--bg-light);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    border-left: 6px solid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kitchen-order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.kitchen-order-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--accent-dark);
+}
+
+.kitchen-order-card p {
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 0.95em;
+}
+
+.kitchen-order-card .order-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 0.9em;
+    color: #555;
+    flex-grow: 1;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 15px;
+}
+
+.kitchen-order-card .order-items-list li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #E9ECEF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kitchen-order-card .order-items-list li:last-child {
+    border-bottom: none;
+}
+
+.kitchen-order-card .qty {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.kitchen-order-card.status-pending { border-color: var(--status-pending); }
+.kitchen-order-card .status-pending { color: var(--status-pending); font-weight: 600; }
+
+.kitchen-order-card.status-preparing { border-color: var(--status-preparing); }
+.kitchen-order-card .status-preparing { color: var(--status-preparing); font-weight: 600; }
+
+.kitchen-order-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* === Menu Stock Section === */
+.menu-stock-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.menu-stock-list th, .menu-stock-list td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.menu-stock-list th {
+    background-color: var(--primary-color);
+    color: var(--accent-light);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.menu-stock-list tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.menu-stock-list tbody tr:hover {
+    background-color: var(--bg-dark);
+}
+
+.menu-stock-list .status-ready { color: var(--status-ready) !important; font-weight: 600; }
+.menu-stock-list .status-pending { color: var(--status-pending) !important; font-weight: 600; }
+.menu-stock-list .status-cancelled { color: var(--status-cancelled) !important; font-weight: 600; }
+
+.stock-management {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.stock-management input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+
+.stock-management input[type="number"]::-webkit-outer-spin-button,
+.stock-management input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* === Profile Section === */
+.profile-info p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.profile-info strong {
+    color: var(--primary-color);
+    display: inline-block;
+    min-width: 150px;
+}
+
+/* === Buttons and Icons === */
+.btn-action {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.btn-action.primary {
+    background-color: var(--primary-color);
+    color: var(--accent-light);
+}
+
+.btn-action.primary:hover {
+    background-color: var(--primary-light);
+}
+
+.btn-action.success {
+    background-color: var(--status-ready);
+    color: var(--accent-light);
+}
+
+.btn-action.success:hover {
+    background-color: #157347;
+}
+
+/* Styles for refresh button icon */
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--accent-dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-icon:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Kasir - Suskom</title>
+    
+    <link rel="stylesheet" href="dashboard_cashier.css"> 
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <h3>Kasir Dashboard</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active"><a href="#overview"><i class="fas fa-chart-line"></i> Ringkasan</a></li>
+                <li class="nav-item"><a href="#transactions"><i class="fas fa-cash-register"></i> Transaksi</a></li>
+                <li class="nav-item"><a href="#reports"><i class="fas fa-file-invoice"></i> Laporan Penjualan</a></li>
+                <li class="nav-item"><a href="#profile"><i class="fas fa-user-circle"></i> Profil Saya</a></li>
+                <li class="nav-item"><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="dashboard-main-content">
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <span class="greeting">Halo, <span id="userName"></span>!</span>
+            </div>
+            <div class="topbar-right">
+                <button id="refreshBtn" class="icon-btn"><i class="fas fa-sync-alt"></i></button>
+                <span class="user-role" id="userRole"></span>
+                <i class="fas fa-bell notification-icon"></i>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <section id="overview" class="content-section active">
+                <h2>Ringkasan Kasir</h2>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Total Pendapatan</h3>
+                        <p class="stat-value" id="totalRevenue">Memuat...</p>
+                        <span class="stat-label">Dari pesanan selesai</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pesanan Selesai</h3>
+                        <p class="stat-value" id="completedOrders">Memuat...</p>
+                        <span class="stat-label">Pesanan yang sudah dibayar</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Menunggu Pembayaran</h3>
+                        <p class="stat-value" id="pendingPayments">Memuat...</p>
+                        <span class="stat-label">Pesanan siap bayar</span>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Aktivitas Transaksi Terbaru</h3>
+                    <!-- Bagian ini telah diperbarui untuk diisi secara dinamis oleh JavaScript -->
+                    <ul id="recentActivityList" class="activity-list">
+                        <!-- Konten akan dimuat di sini oleh dashboard_cashier.js -->
+                    </ul>
+                </div>
+            </section>
+
+            <section id="transactions" class="content-section">
+                <h2>Manajemen Transaksi</h2>
+                <p>Kelola pembayaran dan lihat riwayat transaksi.</p>
+                <div class="transaction-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Transaksi</th>
+                                <th>Meja</th>
+                                <th>Pelanggan</th>
+                                <th>Total</th>
+                                <th>Waktu</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="7">Memuat transaksi...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="reports" class="content-section">
+                <h2>Laporan Penjualan</h2>
+                <!-- Menambahkan ID pada tombol unduh laporan -->
+                <button class="btn-action primary" id="downloadReportBtn">Unduh Laporan</button>
+            </section>
+
+            <section id="profile" class="content-section">
+                <h2>Profil Karyawan</h2>
+                <div class="profile-info">
+                    <p><strong>Nama:</strong> <span id="profileName"></span></p>
+                    <p><strong>Nama Pengguna:</strong> <span id="profileUsername"></span></p>
+                    <p><strong>Posisi:</strong> <span id="profileRole">Kasir</span></p>
+                    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                </div>
+                <!-- <button class="btn-action primary">Edit Profil</button> -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Script untuk library SheetJS (xlsx) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script> 
+    <script src="dashboard_cashier.js"></script>
+</body>
+</html>

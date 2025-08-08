@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Koki - Suskom</title>
+    <link rel="stylesheet" href="dashboard_chef.css"> 
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <h3>Koki Dashboard</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active"><a href="#overview"><i class="fas fa-chart-line"></i> Ringkasan</a></li>
+                <li class="nav-item"><a href="#kitchen"><i class="fas fa-utensils"></i> Antrian Dapur</a></li>
+                <li class="nav-item"><a href="#menu-stock"><i class="fas fa-cubes"></i> Stok Menu</a></li>
+                <li class="nav-item"><a href="#profile"><i class="fas fa-user-circle"></i> Profil Saya</a></li>
+                <li class="nav-item"><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="dashboard-main-content">
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <span class="greeting">Halo, <span id="userName"></span>!</span>
+            </div>
+            <div class="topbar-right">
+                <button id="refreshDashboardBtn" class="btn-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <span class="user-role" id="userRole"></span>
+                <i class="fas fa-bell notification-icon"></i>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <section id="overview" class="content-section active">
+                <h2>Ringkasan Koki</h2>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Pesanan Baru</h3>
+                        <p class="stat-value" id="pendingOrdersChef">Memuat...</p>
+                        <span class="stat-label">Menunggu Diproses</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Sedang Diproses</h3>
+                        <p class="stat-value" id="preparingOrdersChef">Memuat...</p>
+                        <span class="stat-label">Pesanan Aktif</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Stok Menu</h3> <!-- Mengubah teks -->
+                        <p class="stat-value" id="totalMenuStock">Memuat...</p> <!-- Mengubah ID -->
+                        <span class="stat-label">Item Tersedia</span>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Aktivitas Dapur Terbaru</h3>
+                    <ul>
+                        <li><span class="activity-time">19:40</span> Pesanan Baru #2026 (Meja 10) - Nasi Ayam Mentega</li>
+                        <li><span class="activity-time">19:25</span> Pesanan #2023 (Meja 4) - Selesai</li>
+                        <li><span class="activity-time">19:00</span> Mulai Proses Pesanan #2025 (Meja 7)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="kitchen" class="content-section">
+                <h2>Antrian Dapur</h2>
+                <p>Prioritaskan dan kelola pesanan yang masuk.</p>
+                <div class="kitchen-orders">
+                    <p>Memuat antrian dapur...</p>
+                </div>
+            </section>
+
+            <section id="menu-stock" class="content-section"> <!-- Mengubah ID section -->
+                <h2>Stok Menu</h2> <!-- Mengubah judul section -->
+                <p>Periksa ketersediaan item menu dan perbarui stok.</p>
+                <div class="menu-stock-list"> <!-- Mengubah class list -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Menu</th> <!-- Mengubah header tabel -->
+                                <th>Stok</th>
+                                <th>Kategori</th> <!-- Menambahkan kolom kategori -->
+                                <th>Status</th>
+                                <th>Aksi</th> <!-- Tambah kolom Aksi -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5">Memuat stok menu...</td> <!-- Mengubah pesan loading dan colspan -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn-action primary" style="margin-top: 20px;" id="refreshMenuStockBtn">Perbarui Tampilan Stok</button> <!-- Mengubah teks tombol -->
+            </section>
+
+            <section id="profile" class="content-section">
+                <h2>Profil Karyawan</h2>
+                <div class="profile-info">
+                    <p><strong>Nama:</strong> <span id="profileName"></span></p>
+                    <p><strong>Nama Pengguna:</strong> <span id="profileUsername"></span></p>
+                    <p><strong>Posisi:</strong> <span id="profileRole">Koki</span></p>
+                    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                </div>
+                <!-- <button class="btn-action primary">Edit Profil</button> -->
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="dashboard_chef.js"></script>
+</body>
+</html>

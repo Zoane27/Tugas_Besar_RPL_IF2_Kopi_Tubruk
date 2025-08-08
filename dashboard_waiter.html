@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pelayan - Suskom</title>
+    <link rel="stylesheet" href="dashboard_waiter.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-sidebar">
+        <div class="sidebar-header">
+            <h3>Pelayan Dashboard</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active"><a href="#overview"><i class="fas fa-chart-line"></i> Ringkasan</a></li>
+                <li class="nav-item"><a href="#orders"><i class="fas fa-clipboard-list"></i> Pesanan Pelanggan</a></li>
+                <li class="nav-item"><a href="#tables"><i class="fas fa-chair"></i> Meja</a></li>
+                <li class="nav-item"><a href="#profile"><i class="fas fa-user-circle"></i> Profil Saya</a></li>
+                <li class="nav-item"><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="dashboard-main-content">
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <span class="greeting">Halo, <span id="userName"></span>!</span>
+            </div>
+            <div class="topbar-right">
+                <button id="refreshDashboardBtn" class="btn-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <span class="user-role" id="userRole"></span>
+                <i class="fas fa-bell notification-icon"></i>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <section id="overview" class="content-section active">
+                <h2>Ringkasan Pelayan</h2>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Pesanan Siap Antar</h3>
+                        <p class="stat-value" id="readyOrders">Memuat...</p>
+                        <span class="stat-label">Menunggu pengantaran</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Meja Terisi</h3>
+                        <p class="stat-value" id="occupiedTables">Memuat...</p>
+                        <span class="stat-label">Meja sedang digunakan</span>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Aktivitas Terkini</h3>
+                    <ul id="recentActivityList">
+                        <li><span class="activity-time">Memuat...</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="orders" class="content-section">
+                <h2>Manajemen Pesanan</h2>
+                <p>Di sini Anda bisa melihat daftar pesanan yang masuk dan mengelola statusnya.</p>
+                <div class="orders-list">
+                    <p>Memuat pesanan...</p>
+                </div>
+            </section>
+
+            <section id="tables" class="content-section">
+                <h2>Meja</h2>
+                <p>Monitor status meja.</p>
+                <div id="tablesGrid" class="tables-grid">
+                    <p>Memuat status meja...</p>
+                </div>
+            </section>
+
+            <section id="profile" class="content-section">
+                <h2>Profil Karyawan</h2>
+                <div class="profile-info">
+                    <p><strong>Nama:</strong> <span id="profileName"></span></p>
+                    <p><strong>Nama Pengguna:</strong> <span id="profileUsername"></span></p>
+                    <p><strong>Posisi:</strong> <span id="profileRole">Pelayan</span></p>
+                    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                </div>
+                <!-- <button class="btn-action primary">Edit Profil</button> -->
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="dashboard_waiter.js"></script>
+</body>
+</html>
